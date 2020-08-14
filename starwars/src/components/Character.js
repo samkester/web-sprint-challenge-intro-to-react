@@ -28,10 +28,16 @@ const StyledCharacter = styled.div`
   margin-bottom: 2.5%;
   padding: 2%;
 
-  border: 1px solid ${props => props.theme.highlightColor};
+  border: 1px solid ${props => props.theme.headTextColor};
   border-radius: 1rem;
 
-  background-color: ${props => props.theme.backgroundColor};
+  background-color: ${props => props.theme.backgroundColorTrsp};
+  transition: background-color 0.25s;
+
+  :hover{
+    background-color: ${props => props.theme.backgroundColor};
+    border-color: ${props => props.theme.highlightColor};
+  }
 
   h2{
     margin: 0;
@@ -39,6 +45,18 @@ const StyledCharacter = styled.div`
     font-size: 2.4rem;
     text-align: center;
     color: ${props => props.theme.headTextColor};
+  }
+
+  :hover h2{
+    color: ${props => props.theme.highlightColor};
+  }
+
+  .divBox{
+    margin-top: 2.5%;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
   }
 `;
 
@@ -69,20 +87,24 @@ const Character = (props) => {
     return(
         <StyledCharacter>
             <h2>{character.name}</h2>
-            {
-            character.gender !== "n/a" ? // if this character has a gender...
-            <div>{character.gender.toLowerCase()} {species}</div> : // print it and their species
-            <div>{species}</div> // otherwise, just species
-            }
-            <div>Born: {character.birth_year}, {homeworld}</div>
-            <div>Height: {character.height} cm</div>
-            <div>Weight: {character.mass} kg</div>
-            <div>Skin: {character.skin_color}</div>
-            {
-            character.hair_color !== "n/a" &&
-            <div>Hair: {character.hair_color}</div>
-            }
-            <div>Eyes: {character.eye_color}</div>
+            <div className = "divBox">
+                {
+                character.gender !== "n/a" ? // if this character has a gender...
+                <div>{character.gender.toLowerCase()} {species}</div> : // print it and their species
+                <div>{species}</div> // otherwise, just species
+                }
+                <div>Born: {character.birth_year}, {homeworld}</div>
+            </div><div className = "divBox">
+                <div>Height: {character.height} cm</div>
+                <div>Weight: {character.mass} kg</div>
+            </div><div className = "divBox">
+                <div>Skin: {character.skin_color}</div>
+                {
+                character.hair_color !== "n/a" &&
+                <div>Hair: {character.hair_color}</div>
+                }
+                <div>Eyes: {character.eye_color}</div>
+            </div>
         </StyledCharacter>
     );
 };

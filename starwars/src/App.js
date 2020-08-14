@@ -28,7 +28,7 @@ const StyledApp = styled.div`
   width: 90%;
   padding: 0% 2%;
 
-  border: 1px solid ${props => props.theme.highlightColor};
+  border: 1px solid ${props => props.theme.headTextColor};
   border-radius: 2rem;
 
   color: ${props => props.theme.mainTextColor};
@@ -45,10 +45,10 @@ const StyledApp = styled.div`
     font-size: 3rem;
     text-align: center;
 
-    color: ${props => props.theme.highlightColor};
+    color: ${props => props.theme.headTextColor};
     background-color: ${props => props.theme.backgroundColor};
 
-    border: 2px solid ${props => props.theme.highlightColor};
+    border: 2px solid ${props => props.theme.headTextColor};
     border-radius: 1rem;
   }
 `;
