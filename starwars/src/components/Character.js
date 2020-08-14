@@ -1,6 +1,8 @@
 // Write your Character component here
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import styled from "styled-components";
+import theme from "../theme";
 
 /* data available from character:
 name string -- The name of this person.
@@ -58,7 +60,7 @@ const Character = (props) => {
             <div>Weight: {character.mass} kg</div>
             <div>Skin: {character.skin_color}</div>
             {
-            character.hair !== "n/a" &&
+            character.hair_color !== "n/a" &&
             <div>Hair: {character.hair_color}</div>
             }
             <div>Eyes: {character.eye_color}</div>
