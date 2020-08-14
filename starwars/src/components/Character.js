@@ -61,7 +61,7 @@ const StyledCharacter = styled.div`
 `;
 
 const ColorNode = styled.span`
-    color: ${props => props.theme.nodeColors[props.color] || "black"};
+    color: ${props => props.theme.nodeColors[props.color] || props.theme.mainTextColor};
 `;
 
 const Character = (props) => {

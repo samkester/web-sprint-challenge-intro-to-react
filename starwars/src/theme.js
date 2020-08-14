@@ -7,8 +7,19 @@ const theme = {
 
     nodeColors: {
         blue: "steelblue",
-        fair: "papayawhip",
+        fair: "peachpuff",
         blond: "moccasin",
+        "white, blue": "cornflowerblue",
+        "white, red": "crimson",
+        "blue-gray": "lightsteelblue",
+        gold: "goldenrod",
+        red: "firebrick",
+        light: "papayawhip",
+        yellow: "gold",
+        brown: "saddlebrown",
+        "brown, grey": "tan",
+        "auburn, white": "antiquewhite",
+        black: "gray",
     },
 }
 

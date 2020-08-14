@@ -9,7 +9,7 @@ import styled from "styled-components";
 //   Character
 //   props: character element
 
-const USE_TEST_DATA = true;
+const USE_TEST_DATA = false;
 const testLuke = { 
   "name": "Luke Skywalker", 
   "height": "172", 
