@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
+//import './App.css';
 import axios from "axios";
 import Character from "./components/Character";
 import styled from "styled-components";
@@ -23,6 +23,29 @@ const testLuke = {
   "homeworld": "http://swapi.dev/api/planets/1/", 
   "species": [], 
 }; // excerpt from the API example response
+
+const StyledApp = styled.div`
+  box-sizing: border-box;
+  width: 90%;
+  padding: 0% 2% 2%;
+
+  border: 1px solid ${props => props.theme.highlightColor};
+  border-radius: 2rem;
+
+  color: ${props => props.theme.mainTextColor};
+  background-color: ${props => props.theme.backgroundColorTrsp};
+
+  h1{
+    font-size: 3rem;
+    text-align: center;
+
+    color: ${props => props.theme.highlightColor};
+    background-color: ${props => props.theme.backgroundColor};
+
+    border: 2px solid ${props => props.theme.highlightColor};
+    border-radius: 1rem;
+  }
+`;
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
@@ -48,11 +71,11 @@ const App = () => {
   // sync up with, if any.
 
   return (
-    <div className="App">
-      <h1 className="Header">Characters</h1>
+    <StyledApp>
+      <h1>Characters</h1>
       {characters.map((item, index) => 
       <Character key={index} character={item} />)}
-    </div>
+    </StyledApp>
   );
 }
 
