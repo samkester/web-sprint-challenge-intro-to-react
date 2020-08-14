@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from "axios";
+import Character from "./components/Character";
 
 // App structure:
 // state: character array
@@ -8,7 +9,7 @@ import axios from "axios";
 //   props: character element
 
 const App = () => {
-  const [characters, setCharacters] = useState(undefined);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     axios.get("https://swapi.dev/api/people/")
@@ -28,7 +29,8 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      {(characters !== undefined) && characters.map(item => <div>{item.name}</div>)}
+      {characters.map((item, index) => 
+      <Character key={index} character={item} />)}
     </div>
   );
 }
