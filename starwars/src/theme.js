@@ -4,6 +4,12 @@ const theme = {
     mainTextColor: "silver",
     headTextColor: "yellow",
     highlightColor: "cyan",
+
+    nodeColors: {
+        blue: "steelblue",
+        fair: "papayawhip",
+        blond: "moccasin",
+    },
 }
 
 export default theme;

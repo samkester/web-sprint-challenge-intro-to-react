@@ -60,6 +60,10 @@ const StyledCharacter = styled.div`
   }
 `;
 
+const ColorNode = styled.span`
+    color: ${props => props.theme.nodeColors[props.color] || "black"};
+`;
+
 const Character = (props) => {
     const {character} = props;
 
@@ -98,12 +102,12 @@ const Character = (props) => {
                 <div>Height: {character.height} cm</div>
                 <div>Weight: {character.mass} kg</div>
             </div><div className = "divBox">
-                <div>Skin: {character.skin_color}</div>
+                <div>Skin: <ColorNode color={character.skin_color}>{character.skin_color}</ColorNode></div>
                 {
                 character.hair_color !== "n/a" &&
-                <div>Hair: {character.hair_color}</div>
+                <div>Hair: <ColorNode color={character.hair_color}>{character.hair_color}</ColorNode></div>
                 }
-                <div>Eyes: {character.eye_color}</div>
+                <div>Eyes: <ColorNode color={character.eye_color}>{character.eye_color}</ColorNode></div>
             </div>
         </StyledCharacter>
     );
