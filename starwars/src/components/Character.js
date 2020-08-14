@@ -2,7 +2,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import styled from "styled-components";
-import theme from "../theme";
 
 /* data available from character:
 name string -- The name of this person.
@@ -22,6 +21,26 @@ url string -- the hypermedia URL of this resource.
 created string -- the ISO 8601 date format of the time that this resource was created.
 edited string -- the ISO 8601 date format of the time that this resource was edited.
 */
+
+const StyledCharacter = styled.div`
+  box-sizing: border-box;
+  width: 49%;
+  margin-bottom: 2.5%;
+  padding: 2%;
+
+  border: 1px solid ${props => props.theme.highlightColor};
+  border-radius: 1rem;
+
+  background-color: ${props => props.theme.backgroundColor};
+
+  h2{
+    margin: 0;
+    padding: 0;
+    font-size: 2.4rem;
+    text-align: center;
+    color: ${props => props.theme.headTextColor};
+  }
+`;
 
 const Character = (props) => {
     const {character} = props;
@@ -48,7 +67,7 @@ const Character = (props) => {
     }, []); // only on initialization
 
     return(
-        <div>
+        <StyledCharacter>
             <h2>{character.name}</h2>
             {
             character.gender !== "n/a" ? // if this character has a gender...
@@ -64,7 +83,7 @@ const Character = (props) => {
             <div>Hair: {character.hair_color}</div>
             }
             <div>Eyes: {character.eye_color}</div>
-        </div>
+        </StyledCharacter>
     );
 };
 

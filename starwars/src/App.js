@@ -3,7 +3,6 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import Character from "./components/Character";
 import styled from "styled-components";
-import theme from "./theme";
 
 // App structure:
 // state: character array
@@ -27,13 +26,20 @@ const testLuke = {
 const StyledApp = styled.div`
   box-sizing: border-box;
   width: 90%;
-  padding: 0% 2% 2%;
+  padding: 0% 2%;
 
   border: 1px solid ${props => props.theme.highlightColor};
   border-radius: 2rem;
 
   color: ${props => props.theme.mainTextColor};
   background-color: ${props => props.theme.backgroundColorTrsp};
+
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   h1{
     font-size: 3rem;
@@ -52,7 +58,7 @@ const App = () => {
 
   useEffect(() => {
     if(USE_TEST_DATA){
-      setCharacters([testLuke]);
+      setCharacters([testLuke, testLuke, testLuke, testLuke]);
     }
     else{
       axios.get("https://swapi.dev/api/people/")
@@ -73,8 +79,10 @@ const App = () => {
   return (
     <StyledApp>
       <h1>Characters</h1>
-      {characters.map((item, index) => 
-      <Character key={index} character={item} />)}
+      <div className="container">
+        {characters.map((item, index) => 
+        <Character key={index} character={item} />)}
+      </div>
     </StyledApp>
   );
 }
